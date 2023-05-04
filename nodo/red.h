@@ -25,7 +25,7 @@ private:
 
 public:
     Red();
-
+    void random(const int &numRutas);
 
     void cargarRed(const string &nombre);
 

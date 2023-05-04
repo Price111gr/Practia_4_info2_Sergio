@@ -58,4 +58,40 @@ int Red::buscarRuta(const string &nombreRuta)
     return 0;
 }
 
+void Red::random(const int &numNodos)
+{
+    nombre = "Red_aleatoria";
 
+    srand(time(NULL));
+    vector<char> caracteres;
+
+    for(int i=65; i<=90; ++i){
+        caracteres.push_back(i);
+    }
+
+    for(int i=0; i < numNodos; ++i){
+
+        int random = rand()%caracteres.size();
+        topologia.push_back(Nodo(string(1, caracteres[random])));
+        caracteres.erase(caracteres.begin()+random);
+    }
+
+    for(int i=0; i < topologia.size(); ++i){
+
+        for(int j=0; j<topologia.size(); ++j){
+
+            if(j != i){
+
+                if(rand()%3){
+                    topologia[i].addConexion(topologia[j].getNodo(), 1+rand()%15);
+                }
+
+                else{
+                    topologia[i].addConexion(topologia[j].getNodo(), INF);
+                }
+
+                topologia[j].addConexion(topologia[i].getNodo(), topologia[i].getCosto(topologia[j].getNodo()));
+            }
+        }
+    }
+}

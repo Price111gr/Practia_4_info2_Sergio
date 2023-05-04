@@ -13,6 +13,16 @@ int main()
     int opcion = menu(0);
     string aux[2];
 
+    if(opcion == 1){
+        cout << "Ingrese la cantidad de routers que desea: \n";
+        getline(cin, aux[0]);
+
+        rednodos.random(stoi(aux[0]));
+        cout << "Red generada con exito.\n" << endl;
+
+    }
+    cout << rednodos << endl;
+
     while(true){
         system("pause");
         opcion = menu(1);
