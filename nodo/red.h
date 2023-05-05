@@ -25,6 +25,7 @@ private:
 
 public:
     Red();
+    int mejorCamino(const string &rutaInicio, const string &rutaDestino);
     void random(const int &numRutas);
 
     void cargarRed(const string &nombre);

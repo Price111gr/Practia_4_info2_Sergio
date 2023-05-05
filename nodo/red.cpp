@@ -95,3 +95,25 @@ void Red::random(const int &numNodos)
         }
     }
 }
+
+int Red::mejorCamino(const string &rutaInicio, const string &rutaDestino)
+{
+    vector<Nodo> optimizedTopologia = topologia;
+    for(int k=0; k < optimizedTopologia.size(); ++k){
+
+        for(int i=0; i < optimizedTopologia.size(); ++i){
+
+            for(int j=0; j < optimizedTopologia.size(); ++j){
+
+                if(optimizedTopologia[i].getCosto(optimizedTopologia[k].getNodo()) + optimizedTopologia[k].getCosto(optimizedTopologia[j].getNodo()) < optimizedTopologia[i].getCosto(optimizedTopologia[j].getNodo())){
+
+                    optimizedTopologia[i].addConexion(optimizedTopologia[j].getNodo(), optimizedTopologia[i].getCosto(optimizedTopologia[k].getNodo()) + optimizedTopologia[k].getCosto(optimizedTopologia[j].getNodo()));
+                }
+                optimizedTopologia;
+            }
+        }
+    }
+
+    return optimizedTopologia[buscarRuta(rutaInicio)].getCosto(rutaDestino);
+}
+

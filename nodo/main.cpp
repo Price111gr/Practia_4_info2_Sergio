@@ -108,6 +108,7 @@ int menu(const int &opc){
             cout << "\nQue desea hacer?\n"
                     "  1. Agregar enrrutador.\n"
                     "  2. Eliminar enrrutador.\n"
+                    "  3. Consultar costo mas bajo.\n"
                     "  4. Salir.\n "
                     " Opcion: ";
             cin >> opcion; cin.ignore();
