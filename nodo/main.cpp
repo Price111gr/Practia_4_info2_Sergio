@@ -71,6 +71,24 @@ int main()
 
         }
 
+        else if(opcion == 3){
+            cout << rednodos << endl;
+            cout << "Ingrese el enrutador de partida: \n ";
+            getline(cin, aux[0]);
+
+            if(rednodos.salir(aux[0])){
+                cout << "Ingrese el enrutador destino: \n ";
+                getline(cin, aux[1]);
+
+                if(rednodos.salir(aux[1])){
+                    cout << "El menor costo mas bajo de: " << aux[0] << " hasta: " << aux[1]
+                         << " es de: " << rednodos.mejorCamino(aux[0], aux[1]) << ".\n" << endl;
+                    continue;
+                }
+            }
+            cout << "El enrutador ingresado no existe.\n" << endl;
+        }
+
         else if(opcion == 4){
             cout << rednodos << endl;
             break;

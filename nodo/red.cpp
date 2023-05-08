@@ -117,3 +117,42 @@ int Red::mejorCamino(const string &rutaInicio, const string &rutaDestino)
     return optimizedTopologia[buscarRuta(rutaInicio)].getCosto(rutaDestino);
 }
 
+void Red::guardarRuta()
+{
+    string data;
+
+    for(int i=0; i < len(); ++i){
+        data += topologia[i].getNodo() + ":{";
+        for(int j=0; j < len(); ++j){
+            data += topologia[j].getNodo() + ":";
+            if(topologia[i].getCosto(topologia[j].getNodo()) == INF){ data += "- "; }
+            else{
+                data += to_string(topologia[i].getCosto(topologia[j].getNodo())) + " ";
+            }
+        }
+        data.pop_back();
+        data += "}\n";
+    }
+    data.pop_back();
+    write(data);
+}
+
+void Red::write(const string &data)
+{
+
+
+    ofstream file;
+
+    file.open("Redgenerada");
+    if (file.is_open()){
+
+        file << data;
+
+        file.close();
+    }
+    else{
+        cout << "Error al crear " << nombre << endl;
+        exit(1);
+    }
+}
+
